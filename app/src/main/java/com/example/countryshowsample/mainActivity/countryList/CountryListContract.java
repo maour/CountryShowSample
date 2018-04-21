@@ -5,7 +5,7 @@ import com.example.countryshowsample.BasePresenter;
 import com.example.countryshowsample.BaseView;
 
 public interface CountryListContract {
-    interface View extends BaseView<Presenter> {
+    interface View extends BaseView {
 
     }
 
