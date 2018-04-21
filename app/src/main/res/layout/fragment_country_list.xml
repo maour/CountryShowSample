@@ -4,5 +4,9 @@
     android:layout_height="match_parent"
     tools:context="com.example.countryshowsample.mainActivity.countryList.CountryListFragment">
 
+    <TextView
+        android:text="Country List Fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </FrameLayout>
