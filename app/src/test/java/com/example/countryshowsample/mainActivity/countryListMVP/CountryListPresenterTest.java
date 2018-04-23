@@ -1,4 +1,4 @@
-package com.example.countryshowsample.mainActivity.countryList;
+package com.example.countryshowsample.mainActivity.countryListMVP;
 
 import android.arch.core.executor.testing.InstantTaskExecutorRule;
 import android.arch.lifecycle.LiveData;

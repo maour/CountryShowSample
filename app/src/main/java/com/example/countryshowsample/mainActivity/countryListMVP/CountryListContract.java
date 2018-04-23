@@ -1,4 +1,4 @@
-package com.example.countryshowsample.mainActivity.countryList;
+package com.example.countryshowsample.mainActivity.countryListMVP;
 
 
 import com.example.countryshowsample.BasePresenter;

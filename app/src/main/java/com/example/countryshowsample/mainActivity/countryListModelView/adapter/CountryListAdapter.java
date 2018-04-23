@@ -1,4 +1,4 @@
-package com.example.countryshowsample.mainActivity.countryList.adapter;
+package com.example.countryshowsample.mainActivity.countryListModelView.adapter;
 
 
 import android.support.annotation.NonNull;

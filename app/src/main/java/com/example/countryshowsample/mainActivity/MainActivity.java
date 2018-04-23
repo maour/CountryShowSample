@@ -7,7 +7,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.example.countryshowsample.R;
-import com.example.countryshowsample.mainActivity.countryList.CountryListFragment;
+import com.example.countryshowsample.mainActivity.countryListMVP.CountryListFragment;
+import com.example.countryshowsample.mainActivity.countryListModelView.CountryListViewModelFragment;
 
 import javax.inject.Inject;
 
@@ -18,12 +19,18 @@ public class MainActivity extends DaggerAppCompatActivity {
     @Inject
     CountryListFragment fragment;
 
+    @Inject
+    CountryListViewModelFragment vmFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Switch between MVP implementation and ModelView implementation
+
         addFragmentToActivity(getSupportFragmentManager(), fragment, R.id.content);
+//        addFragmentToActivity(getSupportFragmentManager(), vmFragment, R.id.content);
     }
 
     private void addFragmentToActivity(@NonNull FragmentManager fragmentManager,

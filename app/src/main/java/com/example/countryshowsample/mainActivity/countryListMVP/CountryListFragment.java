@@ -1,4 +1,4 @@
-package com.example.countryshowsample.mainActivity.countryList;
+package com.example.countryshowsample.mainActivity.countryListMVP;
 
 
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.example.countryshowsample.R;
 import com.example.countryshowsample.data.CountryListModel;
 import com.example.countryshowsample.di.PerActivity;
-import com.example.countryshowsample.mainActivity.countryList.adapter.CountryListAdapter;
+import com.example.countryshowsample.mainActivity.countryListMVP.adapter.CountryListAdapter;
 
 import java.util.List;
 

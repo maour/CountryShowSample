@@ -3,9 +3,10 @@ package com.example.countryshowsample.mainActivity;
 
 import com.example.countryshowsample.di.PerActivity;
 import com.example.countryshowsample.di.PerFragment;
-import com.example.countryshowsample.mainActivity.countryList.CountryListContract;
-import com.example.countryshowsample.mainActivity.countryList.CountryListFragment;
-import com.example.countryshowsample.mainActivity.countryList.CountryListPresenter;
+import com.example.countryshowsample.mainActivity.countryListMVP.CountryListContract;
+import com.example.countryshowsample.mainActivity.countryListMVP.CountryListFragment;
+import com.example.countryshowsample.mainActivity.countryListMVP.CountryListPresenter;
+import com.example.countryshowsample.mainActivity.countryListModelView.CountryListViewModelFragment;
 
 import dagger.Binds;
 import dagger.Module;
@@ -22,5 +23,9 @@ public abstract class MainActivityModule {
     @Binds
     abstract CountryListContract.Presenter countryListPresenter(CountryListPresenter presenter);
 
+
+    @PerFragment
+    @ContributesAndroidInjector
+    abstract CountryListViewModelFragment countryListViewModelFragment();
 
 }
