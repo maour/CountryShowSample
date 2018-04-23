@@ -24,4 +24,20 @@ public class CountryListPresenter implements CountryListContract.Presenter {
     public void dropView() {
         mView = null;
     }
+
+    @Override
+    public void reloadCountryList() {
+        mView.showLoading(true);
+        mRepository.getCountryList().observeForever(
+                countryListModels -> {
+                    if (countryListModels != null && countryListModels.size() > 0) {
+                        mView.showCountryList(countryListModels);
+                        mView.showMessage("Success");
+                    } else {
+                        mView.showMessage("Failed");
+                    }
+                    mView.showLoading(false);
+                }
+        );
+    }
 }
