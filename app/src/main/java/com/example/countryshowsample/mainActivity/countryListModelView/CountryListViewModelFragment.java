@@ -64,7 +64,11 @@ public class CountryListViewModelFragment extends DaggerFragment {
                 .observe(this,
                         countryListModels -> countriesAdapter.updateModel(countryListModels)
                 );
-        countryListViewModel.reloadCountryList();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        countryListViewModel.reloadCountryList();
+    }
 }

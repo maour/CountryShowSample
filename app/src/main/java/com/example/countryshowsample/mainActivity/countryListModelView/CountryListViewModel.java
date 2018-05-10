@@ -11,6 +11,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+
 public class CountryListViewModel extends ViewModel {
 
     CountryShowRepository mRepository;
@@ -27,8 +30,11 @@ public class CountryListViewModel extends ViewModel {
     }
 
     void reloadCountryList() {
-        mRepository.getCountryList().observeForever(
-                countryListResponse::setValue
-        );
+
+        mRepository.getCountryList()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(countryListModels -> countryListResponse.setValue(countryListModels));
+
     }
 }

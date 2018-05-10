@@ -28,7 +28,7 @@ ext {
     SUPPORT_LIB_VER = '27.1.0'
     BUTTERKNFIE_LIB_VER = '8.8.1'
     RETROFIT_LIB_VER = '2.3.0'
-    DAGGER_LIB_VERSION = '2.14.1'
+    DAGGER_LIB_VERSION = '2.15'
     STETHO_LIB_VERSION = '1.5.0'
 }
 
@@ -69,16 +69,18 @@ dependencies {
     annotationProcessor "com.google.dagger:dagger-compiler:$DAGGER_LIB_VERSION"
     implementation "com.google.dagger:dagger-android-support:$DAGGER_LIB_VERSION"
     annotationProcessor "com.google.dagger:dagger-android-processor:$DAGGER_LIB_VERSION"
-    provided 'javax.annotation:jsr250-api:1.0'
+    compileOnly 'javax.annotation:jsr250-api:1.0'
     implementation 'javax.inject:javax.inject:1'
 
     // Room
-    implementation "android.arch.persistence.room:runtime:1.0.0"
-    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+    implementation "android.arch.persistence.room:runtime:1.1.0"
+    implementation "android.arch.persistence.room:rxjava2:1.1.0"
+    annotationProcessor "android.arch.persistence.room:compiler:1.1.0"
+
     // Arch Component
     implementation "android.arch.lifecycle:livedata:1.1.1"
     implementation "android.arch.lifecycle:common-java8:1.1.1"
     implementation "android.arch.lifecycle:extensions:1.1.1"
     implementation "android.arch.lifecycle:viewmodel:1.1.1"
-
+    implementation "android.arch.lifecycle:reactivestreams:1.1.1"
 }

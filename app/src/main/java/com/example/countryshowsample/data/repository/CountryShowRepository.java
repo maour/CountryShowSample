@@ -1,9 +1,6 @@
 package com.example.countryshowsample.data.repository;
 
 
-import android.arch.lifecycle.LiveData;
-import android.util.Log;
-
 import com.example.countryshowsample.data.CountryListModel;
 import com.example.countryshowsample.data.repository.source.local.LocalConnection;
 import com.example.countryshowsample.data.repository.source.remote.RemoteConnection;
@@ -13,6 +10,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import io.reactivex.Flowable;
 import io.reactivex.schedulers.Schedulers;
 
 @Singleton
@@ -30,7 +28,7 @@ public class CountryShowRepository implements CountryShowSource {
     }
 
     @Override
-    public LiveData<List<CountryListModel>> getCountryList() {
+    public Flowable<List<CountryListModel>> getCountryList() {
         reloadCountryData();
 
         return mLocal.getCountryList();
@@ -44,8 +42,8 @@ public class CountryShowRepository implements CountryShowSource {
     private void reloadCountryData() {
         mRemote.fetchCountryList()
                 .subscribeOn(Schedulers.io())
-                .doOnSuccess(this::storeOnDB)
-                .subscribe(countryList -> Log.i(TAG, "fetch end "),
+                .subscribe(countryList ->
+                                storeOnDB(countryList),
                         Throwable::printStackTrace);
 
     }

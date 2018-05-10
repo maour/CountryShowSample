@@ -1,8 +1,6 @@
 package com.example.countryshowsample.data.repository.source.local;
 
 
-import android.arch.lifecycle.LiveData;
-
 import com.example.countryshowsample.data.CountryListModel;
 import com.example.countryshowsample.data.repository.CountryShowSource;
 import com.example.countryshowsample.data.repository.database.CountryDao;
@@ -11,6 +9,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+
+import io.reactivex.Flowable;
 
 @Singleton
 public class LocalConnection implements CountryShowSource {
@@ -23,7 +23,7 @@ public class LocalConnection implements CountryShowSource {
     }
 
     @Override
-    public LiveData<List<CountryListModel>> getCountryList() {
+    public Flowable<List<CountryListModel>> getCountryList() {
         return mCountryDao.getAllCountryList();
     }
 

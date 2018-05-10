@@ -1,8 +1,6 @@
 package com.example.countryshowsample.data.repository.source.remote;
 
 
-import android.arch.lifecycle.LiveData;
-
 import com.example.countryshowsample.data.CountryListModel;
 import com.example.countryshowsample.data.repository.CountryShowSource;
 
@@ -11,7 +9,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import io.reactivex.Single;
+import io.reactivex.Flowable;
 
 @Singleton
 public class RemoteConnection implements CountryShowSource {
@@ -24,7 +22,7 @@ public class RemoteConnection implements CountryShowSource {
     }
 
     @Override
-    public LiveData<List<CountryListModel>> getCountryList() {
+    public Flowable<List<CountryListModel>> getCountryList() {
         return null;
     }
 
@@ -33,7 +31,7 @@ public class RemoteConnection implements CountryShowSource {
 
     }
 
-    public Single<List<CountryListModel>> fetchCountryList() {
+    public Flowable<List<CountryListModel>> fetchCountryList() {
         return mService.getCountryList();
     }
 }
